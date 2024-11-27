@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COG - Get-Started</title>
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        button:focus,
+        input:focus,
+        textarea:focus {
+            outline: 1px solid #EF4768;
+            box-shadow: none;
+        }
+
+        dl,
+        ol,
+        ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        ol,
+        ul {
+            padding-left: 0;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        /*----------------------*/
+
+
+        .block {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .slidercaptcha {
+            margin: 0 auto;
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            margin-top: 0;
+        }
+
+
+        .card-header {
+            padding: .5rem 1rem;
+            margin-bottom: 0;
+            background-color: #EEEEEE;
+        }
+
+        .card-body {
+            padding: 1rem 0;
+        }
+
+        .row>* {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .captcha-txt {
+            font-size: 14px;
+            font-weight: 400;
+            font-family: "Inter", sans-serif;
+            color: #000000;
+        }
+
+        .slidercaptcha canvas:first-child {
+            border-radius: 8px;
+        }
+
+        .sliderContainer {
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            background: #EEEEEE;
+            color: #45494c;
+            border-radius: 8px !important;
+        }
+
+        .sliderbg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: #EEEEEE;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .sliderContainer_active .slider {
+            top: -1px;
+            border: 1px solid #1991FA;
+        }
+
+        .sliderContainer_active .sliderMask {
+            border-width: 1px 0 1px 1px;
+        }
+
+        .sliderContainer_success .slider {
+            top: -1px;
+            border: 1px solid #02c076 !important;
+            background-color: #02c076 !important;
+            color: #fff;
+        }
+
+        .sliderContainer_success .sliderMask {
+            border: 1px solid #52CCBA;
+            border-width: 1px 0 1px 1px;
+            background-color: #D2F4EF;
+        }
+
+        .sliderContainer_success .sliderIcon:before {
+            content: "\f00c";
+        }
+
+        .sliderContainer_fail .slider {
+            top: -1px;
+            border: 1px solid #f35c59;
+            background-color: #f35c59;
+            color: #fff;
+        }
+
+        .sliderContainer_fail .sliderMask {
+            border: 1px solid #f35c59;
+            background-color: #f7dcdd;
+            border-width: 1px 0 1px 1px;
+        }
+
+        .sliderContainer_fail .sliderIcon:before {
+            content: "\f00d";
+        }
+
+        .sliderContainer_active .sliderText,
+        .sliderContainer_success .sliderText,
+        .sliderContainer_fail .sliderText {
+            display: none;
+        }
+
+        .sliderMask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            border: 0 solid #ef476948;
+            background: #ef476948;
+            border-radius: 8px;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background .2s linear;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider:hover {
+            background: #EF4768;
+            color: #fff;
+            border-color: #EF4768;
+        }
+
+        .slider:hover .sliderIcon {
+            background-position: 0 -13px;
+        }
+
+        .sliderText {
+            position: relative;
+        }
+
+
+        .refreshIcon {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            padding: 6px;
+            color: #000000;
+            background-color: #EEEEEE;
+            font-size: 14px;
+            border-radius: 50px;
+        }
+
+        .refreshIcon:hover {
+            background-color: #EF4768;
+            color: #FFFFFF;
+        }
+
+        #footer .container .row a {
+            width: auto;
+            max-width: fit-content;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+
+        <header class="header">
+            <div class="container">
+                <div class="row justify-content-space-between align-items-center">
+
+                    <div class="logo">
+                        <a href="./index.html">
+                            <div class="imgBox">
+                                <img src="./assets/images/logo.png" alt="logo">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hamburger" >
+                        <div class="imgBox" onclick="toggleSidebar()" id="toggle-button">
+                            <img src="./assets/images/Hamburger.png" alt="icon">
+                        </div>
+
+                        <div class="sidebar" id="sidebar">
+                            <ul>
+                                <li><a href="./index.html" class="nav-link">Start</a></li>
+                                <li><a href="./care-clients.html" class="nav-link">HOW WE CARE FOR CLIENTS</a></li>
+                                <li class="sub-menu" onclick="toggleSublist()">
+                                    <div class="dropdown nav-link justify-content-space-between align-items-center" >THE FOCUS AREA <i
+                                            class="fa-solid fa-angle-down dropdown-arrow" id="arrow"></i>
+                                    </div>
+                                    <ul class="dropdown-items" id="subsidebar">
+                                        <li><a href="./branding.html" class="dropdown-link">Branding</a></li>
+                                        <li><a href="./online-advertisement.html" class="dropdown-link">ONLINE
+                                                ADVERTISEMENT</a>
+                                        </li>
+                                        <li><a href="./seo.html" class="dropdown-link">SEO</a></li>
+                                        <li><a href="./sem-services.html" class="dropdown-link">SEM Services</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./get-started.html" class="nav-link">Get Started</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+
+            <section class="contact-box">
+                <div class="container">
+                    <h1 class="txt-stroke text-align-center">GET STARTED</h1>
+                    <p class="text-align-center">Start your journey to digital excellence with COG Digital Media. Whether you're seeking to
+                        enhance
+                        your <br>
+                        brand, elevate your online presence, or revolutionise your digital strategy, our team is ready
+                        to
+                        bring
+                        your <br> vision to life. Fill out our contact form today, and let's discuss how we can
+                        transform
+                        your
+                        digital <br> landscape together. Your success story starts here</p>
+
+                    <form>
+
+                        <label for="fname">First Name<span style="color: #EF4768;">*</span></label>
+                        <input type="text" id="fname" name="firstname" placeholder="Enter your first name...">
+
+                        <label for="email">Email Address<span style="color: #EF4768;">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address...">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message..."
+                            style="height:120px"></textarea>
+
+                        <div data-aos="fade-up" class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 my-5 ">
+                                    <div class="slidercaptcha card">
+                                        <div class="card-header">
+                                            <span class="captcha-txt">Security Check</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="captcha"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn1" type="submit">Send Messages</button>
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <a href="./privacy-policy.html">Privacy Policy</a>
+                    <a href="./cookies-policy.html">Cookies Policy</a>
+                    <a href="./terms-and-condition.html">Terms And Conditions.</a>
+                </div>
+                <div class="copyRight">
+                    <span>© 2024 COG Digital Media </span>
+                </div>
+            </div>
+            <div class="back-to-top" id="button" onclick="topFunction()">
+                <div class="imgBox">
+                    <img src="./assets/images/back-to-top.svg" alt="">
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init(); </script> -->
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
