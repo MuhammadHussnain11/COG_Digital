@@ -27,20 +27,6 @@ let sidebar = document.getElementById("sidebar");
 let subsidebar = document.getElementById("subsidebar");
 let arrow = document.getElementById("arrow");
 
-function toggleSidebar() {
-    if (sidebar.style.visibility === "visible") {
-        sidebar.style.visibility = "hidden";
-        sidebar.style.opacity = "0";
-        sidebar.style.transform = "translateY(0px)";
-        subsidebar.style.display = "none";
-        arrow.style.transform = "rotate(0deg)";
-    } else {
-        
-        sidebar.style.visibility = "visible";
-        sidebar.style.opacity = "1";
-        sidebar.style.transform = "translateY(20px)";
-    }
-}
 
 function toggleSublist() {
     if (subsidebar.style.display === "block") {

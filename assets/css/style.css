@@ -28,6 +28,11 @@ body {
   overflow-x: hidden;
   background-color: var(--body-bg);
 }
+#wrapper{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 ul li {
   list-style-type: none;
 }
@@ -51,7 +56,8 @@ h6 {
   line-height: 1.3;
   color: var(--font-color);
 }
-p {
+p,
+ul li {
   line-height: 1.5;
 }
 .text-align-left {
@@ -100,8 +106,7 @@ h1 {
 }
 p,
 h2,
-h3,
-.brand-sec1 .container .row .col .imgBox {
+h3 {
   margin-bottom: 20px;
 }
 h6 {
@@ -174,10 +179,12 @@ form input[type="submit"]:hover {
 .header .row{
   margin: 0;
   padding: 40px 0;
+  justify-content: space-between;
+  align-items: center;
 }
-.care-section7 .row,
+.get_started2 .row,
 #footer .row,
-.sec-8 .row {
+.get_started .row {
   margin: 0;
 }
 .header .logo {
@@ -202,6 +209,11 @@ form input[type="submit"]:hover {
   visibility: hidden;
   transform: translateY(20px);
   transition: all 0.2s ease-in-out;
+}
+.hamburger:hover .sidebar{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(5px);
 }
 .sidebar ul li {
   background-color: var(--body-bg);
@@ -240,10 +252,11 @@ form input[type="submit"]:hover {
   color: var(--body-bg);
 }
 section,
-#footer {
-  padding: 70px 0;
+#footer,
+.banner {
+  padding: 60px 0;
 }
-.care-section7 {
+.get_started2 {
   margin: 70px 0;
 }
 .container {
@@ -260,12 +273,11 @@ section,
   flex: 0 0 50%;
   max-width: 50%;
   padding: 0 30px;
-  margin-bottom: 30px;
 }
 .align-items-center {
   align-items: center;
 }
-.hero-sec {
+.banner_start {
   width: 90%;
   margin: auto;
   background-image: url(/assets/images/hero-bg.svg);
@@ -273,10 +285,13 @@ section,
   background-size: contain;
   background-position: center;
 }
-.sec-2 {
+.banner_start .container{
+  text-align: center;
+}
+.transforming_sec {
   position: relative;
 }
-.sec-2::before {
+.transforming_sec::before {
   content: url(/assets/images/s2-img2.svg);
   position: absolute;
   left: 0;
@@ -284,7 +299,7 @@ section,
   transform: translateY(-50%);
   z-index: -1;
 }
-.sec4 {
+.tailored-bg {
   background-image: url(/assets/images/p1-bg2.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -319,14 +334,14 @@ section,
 .services-sec .row .col p {
   text-align: justify;
 }
-.sec7 p b {
+.elevate_brand p b {
   color: var(--secondary-color);
 }
-.sec-8 {
+.get_started {
   border-top: 1px solid var(--border-color);
 }
-.sec-8 .row,
-.care-section7 .row,
+.get_started .row,
+.get_started2 .row,
 .seo-sec2 .container > .row > .col > .row {
   flex-direction: column;
 }
@@ -359,7 +374,7 @@ section,
   height: 500px;
   z-index: -9;
 }
-.contact-box .container form {
+.contact-box {
   background-color: var(--sec-bg);
   margin: auto;
   max-width: 1200px;
@@ -367,6 +382,7 @@ section,
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 70px;
 }
 form label {
   color: var(--font-color);
@@ -390,21 +406,21 @@ input:focus,
 textarea:focus {
   border: 1px solid var(--primary-color);
 }
-.contact-box form .captcha {
+.contact-box .captcha {
   max-width: 400px;
   width: 80%;
   padding: 30px 0;
 }
-.care-section3 .imgBox,
-.care-section5 .imgBox,
-.online-sec5 .imgBox {
+.quality_service .imgBox,
+.innov-core .imgBox,
+.need_online_adv .imgBox {
   max-width: 500px;
 }
-.care-section3 ul li {
+.quality_service ul li {
   position: relative;
   padding-left: 35px;
 }
-.care-section3 ul li::before {
+.quality_service ul li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -415,31 +431,31 @@ textarea:focus {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.care-section4 .row,
-.online-sec5 .container > .row,
-.brand-sec1 .row:last-child {
+.open_comm .row,
+.need_online_adv .container > .row,
+.elev_brand .row:last-child {
   flex-wrap: wrap-reverse;
 }
-.care-section5 .col .row .imgBox,
-.online-sec5 .col .row .imgBox {
+.innov-core .col .row .imgBox,
+.need_online_adv .col .row .imgBox {
   width: 56px;
   margin-bottom: 15px;
 }
-.care-section7 {
+.get_started2 {
   background-color: var(--sec-bg);
 }
-.brand-sec1 .row,
-.brand-sec7 .row,
-.online-sec3 .row {
+.elev_brand .row,
+.brand_ident .row,
+.ampl_brand .row {
   padding-top: 50px;
 }
-.sec7 .col,
-.brand-sec7 .col,
-.online-sec3 > .container > .row:nth-of-type(2) > .col {
+.elevate_brand .col,
+.brand_ident .col,
+.ampl_brand > .container > .row:nth-of-type(2) > .col {
   max-width: 33%;
 }
-.brand-sec7 .imgBox,
-.online-sec3 .imgBox {
+.brand_ident .imgBox,
+.ampl_brand .imgBox {
   max-width: 80px;
   margin-bottom: 20px;
 }
@@ -484,10 +500,6 @@ ul.cookies-list li {
     width: 300px;
     height: 300px;
   }
-  .brand-sec1 .row:first-of-type .col:first-child,
-  .online-sec3 .row:first-of-type .col:first-child {
-    margin-bottom: 0;
-  }
 }
 @media (max-width: 767px) {
   h1 {
@@ -495,8 +507,7 @@ ul.cookies-list li {
   }
   p,
   h2,
-  h3,
-  .brand-sec1 .container .row .col .imgBox {
+  h3{
     margin-bottom: 10px;
   }
   h2 strong,
@@ -515,23 +526,27 @@ ul.cookies-list li {
     padding: 20px 0;
   }
   section,
-  #footer {
+  #footer,
+  .banner {
     padding: 30px 0;
   }
-  .care-section7 {
+  .get_started2 {
     margin: 30px 0;
   }
   .col,
-  .sec7 .col,
-  .brand-sec7 .col,
-  .online-sec3 > .container > .row:nth-of-type(2) > .col {
+  .elevate_brand .col,
+  .brand_ident .col,
+  .ampl_brand > .container > .row:nth-of-type(2) > .col {
     max-width: 100%;
     flex: 0 0 100%;
   }
-  .sec-2 .row {
+  .col{
+    margin-bottom: 30px;
+  }
+  .transforming_sec .row {
     flex-direction: column-reverse;
   }
-  .sec-5 .row {
+  .offer-sec .row {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -540,29 +555,27 @@ ul.cookies-list li {
     height: 76px;
     top: -38px;
   }
+  .services-sec .container .row{
+    justify-content: center;
+  }
   #footer::after {
     width: 200px;
     height: 200px;
   }
-  .contact-box .container form {
-    width: 100%;
+  .contact-box {
     padding: 50px calc(1.5rem * 0.5);
   }
-  .care-section3 ul li::before {
+  .quality_service ul li::before {
     transform: translateY(10%);
     width: 17px;
   }
-  .care-section5 .container .row .col > p,
-  .online-sec5 .container .row .col > p {
-    margin-top: 10px;
+  .elev_brand .row,
+  .brand_ident .row,
+  .ampl_brand .row {
+    padding-top: 20px;
   }
-  .brand-sec1 .row,
-  .brand-sec7 .row,
-  .online-sec3 .row {
-    padding-top: 30px;
-  }
-  .brand-sec7 .imgBox,
-  .online-sec3 .imgBox {
+  .brand_ident .imgBox,
+  .ampl_brand .imgBox {
     width: 60px;
   }
 }
